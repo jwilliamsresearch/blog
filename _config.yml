@@ -9,7 +9,7 @@ name: Blog - James Williams
 description: Web Developer from Somewhere
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+avatar: 
 
 #
 # Flags below are optional
@@ -67,10 +67,6 @@ kramdown:
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
     css_class: 'highlight'
-
-# Set the Sass partials directory, as we're using @imports
-sass:
-  style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
 gems:

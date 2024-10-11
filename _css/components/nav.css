@@ -1,0 +1,77 @@
+/* Custom Nav */
+
+/* Nav Animations */
+
+@keyframes load-border-nav {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Nav Main */
+
+.navbar {
+    min-height: 120px;
+    background: rgba(250, 249, 246, 0.8) !important;
+
+}
+
+.navbar-brand {
+    letter-spacing: 6px;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.nav-link {
+    display: block;
+    letter-spacing: 4px;
+    text-indent: 4px;
+    text-transform: uppercase;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+.nav-link.active:after {
+    background-color: black;
+    content: "";
+    display: block;
+    height: 2px;
+
+    animation: .5s ease-in 0s 1 load-border-nav forwards;
+}
+
+/* Pill Navs */
+
+.nav-pills .nav-link {
+    background-color: #837cdc;
+    color: white;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #121212
+}
+
+.nav-pills .nav-link.active:after {
+    background-color: black;
+    content: "";
+    display: block;
+    height: 2px;
+
+    animation: .5s ease-in 0s 1 load-border-nav forwards;
+}
+
+.nav-pills .nav-link.active {
+    background: white;
+    color:#121212;
+}
+
+/* Vertical Navigation */
+
+.flex-column .nav-link {
+    color: white;
+    padding-left: 0 !important;
+}

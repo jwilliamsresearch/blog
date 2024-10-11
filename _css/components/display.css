@@ -1,0 +1,56 @@
+/* Supporting Components */
+
+@media (min-width: 1200px) {
+    .container-small {
+        max-width: 992px;
+    }
+}
+
+/* Helper-style notification */
+.helper-notification {
+    border-radius: 4px;
+}
+
+/* Aims */
+
+.aims {
+    padding-top: 80px;
+    padding-bottom: 20px;;
+}
+
+.aims .badge {
+    float: right;
+    height: 40px;
+    width: 40px;
+    line-height: 26px;
+    text-align: center;
+
+    font-size: 1rem;
+    border: solid 2px white;
+}
+
+/* Main content */
+
+.content-container {
+    margin-top: 80px;
+}
+
+/* Scrolling Setting */
+
+#header, #about, #aims, #context, #bibtex-output, #search-controls {
+    scroll-margin-top: 120px;
+}
+
+/* Research Display */
+
+.bibtex_display .YEAR {
+    font-weight: 300 !important;
+}
+
+.bibtex_display a {
+    color: black;
+}
+
+.bibtex_display code {
+    color: #6b6b6b;
+}

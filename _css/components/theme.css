@@ -1,0 +1,41 @@
+/* Main Colours */
+
+.bg-purple {
+    background-color: #7068d7;
+}
+
+.bg-cyan {
+    background-color: #68cfd7;
+}
+
+.bg-greendark {
+    background-color: #16a091;
+}
+
+.bg-green {
+    background-color: #4ac97f;
+}
+
+/* Research Colours */
+
+.bg-INPROCEEDINGS {
+    background-color: purple;
+}
+
+.bg-ARTICLE {
+    background-color: lightskyblue;
+}
+
+.bg-MASTERSTHESIS {
+    background-color: salmon;
+}
+
+/* Background Images */
+
+.mask-sunset {
+    background: url("../../media/img/background1.png");
+}
+
+.mask-treeroad {
+    background: url("../../media/img/background2.png");
+}
