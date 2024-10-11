@@ -32,14 +32,14 @@
                           <a class="nav-link" href="https://jwilliams.science/">About</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"  href="href="{{ site.baseurl }}/"">Blog</a>
+                    </li>
+                      <li class="nav-item">
                           <a class="nav-link" href="https://jwilliams.science/research/">Research</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="https://jwilliams.science/research/software.html">Software</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"  href="href="{{ site.baseurl }}/"">Blog</a>
-                    </li>
                   </ul>
               </div>
           </div>
@@ -65,6 +65,26 @@
       </div>
     </div>
 
-    {% include analytics.html %}
+    <footer class="bg-dark">
+      <div class="container py-4 my-4 text-white">
+          <div class="alert alert-info" role="alert">
+              This website is currently under development. The layout, content, and information is being updated to be more relevant to the current status of projects. 
+            </div>
+          <ul class="nav justify-content-center">
+              <li class="nav-item">
+                  <a href="https://jwilliams.science/" class="nav-link text-white">About</a>
+              </li>
+              <li class="nav-item">
+                  <a href="https://jwilliams.science/imports/Libraries and Sources.md" class="nav-link text-white">Attribution</a>
+              </li>
+          </ul>
+          <p class="text-center">James Williams | jwilliams.science</p>
+          <p class="text-center">The use of logos, acknowledgements, or name on this website does not indicate
+              endorsement.</p>
+      </div>
+  </footer>
+
+  <script src="{{ site.baseurl }}/imports/Bootstrap/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
