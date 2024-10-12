@@ -16,6 +16,8 @@ My history of updating my own website has been poor, however, over the last few 
 
 This article will briefly present the current status of the website architecture, explaining the choices made and highlighting my future focus.
 
+[TOC]
+
 ### Purpose of Website
 
 When considering the layout and design of the new website, I first had to consider what type of content would be displayed on it. The initial intention of the website was to present my recent projects and publications. 
