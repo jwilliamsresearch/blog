@@ -12,7 +12,7 @@ icon: bi-file-earmark-code-fill
 ---
 You may have realised while browsing this website that it has been recently updated from the version that I completed 3-years ago. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
 
-My history of updating my own website has been poor, however, over the last few months I have been slowly building a series of new interfaces for presenting my research publications, research projects, and an informal blog. The current interface was selected due to the organised view and easy to understand structure.
+My history of updating my own website has been poor, however, over the last few months I have been slowly building a series of new interfaces for presenting my research publications, research projects, and an informal blog. The current interface was selected due to the organised view and easy to understand structure. This will hopefully help me in focusing on producing content as opposed to refactoring web pages. 
 
 This article will briefly present the current status of the website architecture, explaining the choices made and highlighting my future focus.
 
@@ -20,7 +20,7 @@ This article will briefly present the current status of the website architecture
 
 When considering the layout and design of the new website, I first had to consider what type of content would be displayed on it. The initial intention of the website was to use...
 
-![Demo image to check that everything is working.](images/blogbackground.jpg)
+![Demo image to check that everything is working.](../images/blogbackground.jpg)
 
 ### A Website Built for Projects
 
