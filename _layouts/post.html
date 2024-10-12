@@ -36,6 +36,8 @@ layout: default
                 <p>{{ page.author }}</p>
                 <h4><i class="bi bi-chat-square-text"></i> Keywords</h4>
                 <p>{{ page.keywords }}</p>
+                <p>{{ post.content | number_of_words | divided_by: 220 }} reading. {{ post.content | number_of_words}} words.</p>
+                <!-- from https://stackoverflow.com/questions/26578232/obtaining-the-word-count-from-a-post-in-jekyll-for-github-pages-->
             </div>
         </div>
     </div>
