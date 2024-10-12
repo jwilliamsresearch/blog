@@ -16,9 +16,9 @@ My history of updating my own website has been poor, however, over the last few 
 
 This article will briefly present the current status of the website architecture, explaining the choices made and highlighting my future focus.
 
+### Website Architecture
 
-
-![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected is are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.webp)
+![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected is are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.svg)
 
 ### Purpose of Website
 
