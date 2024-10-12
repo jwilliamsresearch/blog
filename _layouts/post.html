@@ -3,9 +3,17 @@ layout: default
 ---
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+  <h1></h1>
+  <div class="header-base header-small">
+    <div class="central-holder">
+        <div class="container central-container">
+            <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight">{{ page.title }}</h1>
+            <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">Short title here.</p>
+        </div>
+    </div>
+  </div>
 
-  <div class="entry">
+  <div class="entry container">
     {{ content }}
   </div>
 
