@@ -9,14 +9,14 @@ layout: default
         <div class="container central-container">
             <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight">{{ page.title }}</h1>
             <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">Short title here.</p>
-            <p class="date animate__animated animate__fadeInRight">
+            <p class="ps-4 date animate__animated animate__fadeInRight">
               Written on {{ page.date | date: "%B %e, %Y" }}
             </p>
         </div>
     </div>
   </div>
 
-  <div class="bg-green text-white pt-4 pb-4 mb-4">
+  <div class="bg-green text-white pt-4 pb-4 mb-4" style="background-color: purple">
     <div id="context" class="container pt-4 pb-4">
         <div class="row">
             <div class="col-lg-7">
@@ -30,7 +30,7 @@ layout: default
 
             <div class="col">
                 <h4><i class="bi bi-clock"></i> Date Posted</h4>
-                <p>2024 - Present</p>
+                <p>{{ page.date | date: "%B %e, %Y" }}</p>
                 <h4><i class="bi bi-person"></i> Author</h4>
                 <p>James Williams</p>
                 <h4><i class="bi bi-pin-map"></i> Keywords</h4>
