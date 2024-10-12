@@ -14,7 +14,7 @@ layout: default
 <div class="posts">
   {% for post in site.posts %}
 
-  <div class="bg-green text-white pt-4 pb-4 mb-4" style="background-color: {{ post.displaytheme }} !important">
+  <article class="bg-green text-white pt-4 pb-4 mb-4" style="background-color: {{ post.displaytheme }} !important">
     <div id="context" class="container pt-4 pb-4">
         <div class="row">
             <div class="col-lg-7">
@@ -36,17 +36,6 @@ layout: default
             </div>
         </div>
     </div>
-</div>
-
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+  </article>
   {% endfor %}
 </div>
