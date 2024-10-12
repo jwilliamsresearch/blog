@@ -7,6 +7,7 @@ brief: A couple of sentences at the top of the document.
 author: J. Williams
 keywords: Walking, Systems, Technology
 displaytheme: '#6c5ce7'
+maskimage: blog1.jpg
 ---
 
 This is the main text of the first post. 
