@@ -8,6 +8,7 @@ author: J. Williams
 keywords: Website Development, Software Development, Personal Website
 displaytheme: '#2d3142'
 maskimage: architecture.png
+icon: bi-code-slash
 ---
 You may have realised while browsing this website that it has been recently updated from the version that I completed 3-years ago. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
 
