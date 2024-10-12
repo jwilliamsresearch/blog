@@ -20,6 +20,10 @@ This article will briefly present the current status of the website architecture
 
 ![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected is are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.svg)
 
+The new website layout is split into three core components. These components are represented in the diagram above and include the main website (https://jwilliams.science) representing the project and software overviews, the blog website (https://blog.jwilliams.science) representing this blog, and the potential for future sub-domains for projects (e.g., https://lwswg.jwilliams.science).
+
+The new architecture enables each component to be stored separately in correlated GitHub repositories. This also enables possible future expansion. 
+
 ### Purpose of Website
 
 When considering the layout and design of the new website, I first had to consider what type of content would be displayed on it. The initial intention of the website was to present my recent projects and publications. 
