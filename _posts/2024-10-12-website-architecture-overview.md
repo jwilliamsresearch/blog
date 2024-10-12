@@ -15,7 +15,7 @@ My history of updating my own website has been poor, however, over the last few 
 
 This article will briefly present the current status of the website architecture, explaining the choices made and highlighting my future focus.
 
-### Purpose of my New Website
+### Purpose of Website
 
 ...
 
@@ -23,10 +23,18 @@ This article will briefly present the current status of the website architecture
 
 [CONTINUED]
 
-### Dynamic and Searchable Publications
+### Dynamic and Scalable Publications
 
 ...
 
 ### The Learning Process
+
+As part of this process...
+
+#### Ongoing Challenges
+
+...
+
+#### Future Plans
 
 ...
