@@ -18,7 +18,9 @@ This article will briefly present the current status of the website architecture
 
 ### Purpose of Website
 
-...
+When considering the layout and design of the new website, I first had to consider what type of content would be displayed on it. The initial intention of the website was to use...
+
+![Demo image to check that everything is working.](D:\Projects\github\blog\images\blogbackground.jpg)
 
 ### A Website Built for Projects
 
