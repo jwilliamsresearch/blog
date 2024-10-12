@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Test First Post!
+subtitle: This is the subtitle of the page. A one-sentence text description.
+lead: This is the leading text. A key finding, etc. 
+brief: A couple of sentences at the top of the document. 
+author: J. Williams
+keywords: Walking, Systems, Technology
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
