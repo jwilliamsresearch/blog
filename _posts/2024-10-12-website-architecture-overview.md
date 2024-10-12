@@ -58,13 +58,21 @@ Development of the my new website was intended to be a learning process, combini
 
 This format should mean that blog posts, recent updates, tutorials, and news can be published quickly through GitHub pages. I hope to continue extending the blog in the near future to include pagination and read time suggestions. 
 
+As part of this development and learning process, I have identified the following areas for improvement:
+
 #### Ongoing Challenges
 
-...
+- The videos on the research project pages need to be better optimised for networks. 
+- The software page is not yet complete and a layout is not yet planned. 
+- The blog does not have pagination at the moment. 
+- Several images should also be optimised. 
 
-#### Future Plans
+#### Future Goals
 
-...
+- Continue development on a 'software' page. 
+- Continue posting roughly once a month blog posts depending on availability.
+- Continue hosting projects through the sub-domains of the website. 
 
 ### Closing Statement
 
+The development of this website has enhance my understanding of web-based technologies, particularly those involved in user interface design. The website has also enhanced my knowledge of static site generators and I hope to continue learning about these over the next few months. As part of this new website, I also hope to continue updating this blog sharing tutorials, research, thoughts, and software development posts. 
