@@ -32,11 +32,17 @@ A question I asked myself while building this new website was if I wanted to use
 
 If I had used templates the whole website could be published using Jekyll through GitHub Pages (More on this later), however, this approach would retain a similar style for each of the project pages. Instead, customised HTML pages were still used to enable future interactivity and individual page layouts to be used. 
 
-These new project pages enable both long-term and short-term projects to be presented as part of the 'research' page of this website. Each new page has serveral key elements including a header with dynamic video background, a infobox panel with short project details, and a main content location for the body text of the project. These project pages can now represent completed or ongoing work. 
+These new project pages enable both long-term and short-term projects to be presented as part of the 'research' page of this website. The project can have a standalone theme while still matching with the overall style of the website. Each new page has serveral key elements including a header with dynamic video background, a infobox panel with short project details, and a main content location for the body text of the project. These project pages can now represent completed or ongoing work. 
 
-### Dynamic and Scalable Publication Display
+### Dynamic Publication Display
 
-...
+Using the aforementioned [bibtex.js](https://github.com/pcooksey/bibtex-js) library a dynamic and scalable publication list could be formed, with each of my open access publication available to download through the associated links. 
+
+This publication list is also able to display extended details of the publication including keywords and a citation for the relevant article. Each publication also links to the online location of the work or the DOI. Through this all being completed automatically, only a minimal amount of manual development (copying the .bib citation) is needed to update the list of publications. 
+
+![Screenshot of the project pages layout showing the Leisure Walking Framework and LWSWG project pages.](../images/posts/2024-10-12/wordcloud.png)
+
+Using the dynamic list of publications, I also impleted a dynamic word cloud based on the content of the article abstracts. The word cloud was implemented using [wordcloud2.js](https://github.com/timdream/wordcloud2.js/), and enables a dynamic word cloud to be generated using the abstract of the work. The word cloud could be further developed in the future to alter based on publication filtering.
 
 ### The Learning Process
 
