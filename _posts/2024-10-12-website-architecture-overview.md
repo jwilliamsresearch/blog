@@ -10,13 +10,15 @@ displaytheme: '#2d3142'
 maskimage: architecture.png
 icon: bi-file-earmark-code-fill
 ---
-You may have realised while browsing this website that it has been recently updated from the version that I completed 3-years ago. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
+You may have realised while browsing this website that it has been recently updated and under development. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
 
 My history of updating my own website has been poor, however, over the last few months I have been slowly building a series of new interfaces for presenting my research publications, research projects, and an informal blog. The current interface was selected due to the organised view and easy to understand structure. This will hopefully help me in focusing on producing content for the website as opposed to refactoring web pages. 
 
 This article will briefly present the current status of the website architecture, explaining the choices made and highlighting my future focus.
 
-[TOC]
+
+
+![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected is are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.webp)
 
 ### Purpose of Website
 
@@ -42,13 +44,15 @@ Using the aforementioned [bibtex.js](https://github.com/pcooksey/bibtex-js) libr
 
 This publication list is also able to display extended details of the publication including keywords and a citation for the relevant article. Each publication also links to the online location of the work or the DOI. Through this all being completed automatically, only a minimal amount of manual development (copying the .bib citation) is needed to update the list of publications. 
 
-![Screenshot of the project pages layout showing the Leisure Walking Framework and LWSWG project pages.](../images/posts/2024-10-12/wordcloud.png)
+![Screenshot of the Research page showcasing the dynamic word cloud.](../images/posts/2024-10-12/wordcloud.png)
 
 Using the dynamic list of publications, I also impleted a dynamic word cloud based on the content of the article abstracts. The word cloud was implemented using [wordcloud2.js](https://github.com/timdream/wordcloud2.js/), and enables a dynamic word cloud to be generated using the abstract of the work. The word cloud could be further developed in the future to alter based on publication filtering.
 
 ### The Learning Process
 
-As part of this process...
+Development of the my new website was intended to be a learning process, combining my existing web development skills on the base-level pages (home, research, research pages, etc) with new knowledge formed through the development of a blog. This blog is developed on the great [jekyll-now](https://github.com/barryclark/jekyll-now) package, enabling the writing of blog posts quickly using the .md file format. 
+
+This format should mean that blog posts, recent updates, tutorials, and news can be published quickly through GitHub pages. I hope to continue extending the blog in the near future to include pagination and read time suggestions. 
 
 #### Ongoing Challenges
 
@@ -57,4 +61,6 @@ As part of this process...
 #### Future Plans
 
 ...
+
+### Closing Statement
 
