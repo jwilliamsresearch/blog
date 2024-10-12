@@ -6,7 +6,7 @@ h3 {
     font-size: 3rem;
 }
 
-p, .main-text {
+p, .main-text, article li {
     font-size: 1.2rem;
     letter-spacing: .5px;
     word-spacing: 1px;
