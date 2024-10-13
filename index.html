@@ -4,10 +4,13 @@ layout: default
 
 <div class="header-base header-small">
   <div class="central-holder">
-      <div class="container central-container">
-          <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight">Place, Maps, and Code</h1>
-          <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">This blog is formed of a intersection of my interests, sharing a series of <b>tutorials</b>, <b>reflections</b>, and <b>posts</b> about my research and personal interests. This blog will mainly contain <b>insights</b> into <b>place-based representations</b>, <b>software</b>, and my latest <b>projects</b>. </p>
-      </div>
+    <div class="container central-container">
+      <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight">Place, Maps, and Code</h1>
+      <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">
+        Place, Maps, and Code is research and personal blog formed of my <b>thoughts</b>, <b>reflections</b>, and
+        <b>tutorials</b> on all things related to <b>platial information</b>, <b>software development</b>, and <b>mapping technologies</b>.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -16,29 +19,31 @@ layout: default
 
   <article class="bg-green text-white pt-4 pb-4" style="background-color: {{ post.displaytheme }} !important">
     <a class="text-white" href="{{ site.baseurl }}{{ post.url }}">
-    <div id="context" class="container pt-4 pb-4">
+      <div id="context" class="container pt-4 pb-4">
         <div class="row">
-            <div class="col-lg-7">
-                <h3><i class="bi {{ post.icon }}"></i> {{ post.title }}</h3>
-                <p class="lead">
-                  {{ post.subtitle }}
-                </p>
-                <hr>
-                <p>{{ post.excerpt }}</p>
-            </div>
+          <div class="col-lg-7">
+            <h3><i class="bi {{ post.icon }}"></i> {{ post.title }}</h3>
+            <p class="lead">
+              {{ post.subtitle }}
+            </p>
+            <hr>
+            <p>{{ post.excerpt }}</p>
+          </div>
 
-            <div class="col">
-                <h4><i class="bi bi-clock"></i> Published</h4>
-                <p>{{ post.date | date: "%B %e, %Y" }}</p>
-                <h4><i class="bi bi-person"></i> Author</h4>
-                <p>{{ post.author }}</p>
-                <h4><i class="bi bi-chat-square-text"></i> Keywords</h4>
-                <p>{{ post.keywords }}</p>
-            </div>
+          <div class="col">
+            <h4><i class="bi bi-clock"></i> Published</h4>
+            <p>{{ post.date | date: "%B %e, %Y" }}</p>
+            <h4><i class="bi bi-person"></i> Author</h4>
+            <p>{{ post.author }}</p>
+            <h4><i class="bi bi-chat-square-text"></i> Keywords</h4>
+            <p>{{ post.keywords }}</p>
+          </div>
         </div>
-        <div class="float-end"><h5>Read More <i class="bi bi-arrow-right"></i></h5></div>
-    </div>
-  </a>
+        <div class="float-end">
+          <h5>Read More <i class="bi bi-arrow-right"></i></h5>
+        </div>
+      </div>
+    </a>
   </article>
   {% endfor %}
 </div>
