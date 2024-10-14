@@ -50,8 +50,8 @@ layout: default
   {% endfor %}
 </div>
 
-<nav class="ms-auto me-auto mt-4 mb-2 d-flex" aria-label="Pagination Navigation">
-  <ul class="pagination justify-content-center">
+<nav class="ms-auto me-auto mt-4 mb-3" aria-label="Pagination Navigation">
+  <ul class="pagination justify-content-center  d-flex">
     {% if paginator.previous_page %}
     <li class="page-item w-100">
       <a href="{{ paginator.previous_page_path }}" class="previous page-link">
