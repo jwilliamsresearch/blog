@@ -5,10 +5,12 @@ layout: default
 <div class="header-base header-small">
   <div class="central-holder">
     <div class="container central-container">
-      <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight"><i class="bi bi-newspaper"></i> Place, Maps, and Code</h1>
+      <h1 class="ps-4 clip mask-farm animate__animated animate__backInRight"><i class="bi bi-newspaper"></i> Place,
+        Maps, and Code</h1>
       <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">
         Place, Maps, and Code is research and personal blog formed of my <b>thoughts</b>, <b>reflections</b>, and
-        <b>tutorials</b> on all things related to <b>platial information</b>, <b>software development</b>, and <b>mapping technologies</b>.
+        <b>tutorials</b> on all things related to <b>platial information</b>, <b>software development</b>, and
+        <b>mapping technologies</b>.
       </p>
     </div>
   </div>
@@ -52,25 +54,26 @@ layout: default
   <ul class="pagination justify-content-center">
     {% if paginator.previous_page %}
     <li class="page-item">
-      <a href="{{ paginator.previous_page_path }}" class="previous">
+      <a href="{{ paginator.previous_page_path }}" class="previous page-link">
         Previous
       </a>
     </li>
-  {% else %}
-  <li class="page-item disabled">
-    <a class="page-link">Previous</a>
-  </li>
-  {% endif %}
-    <li class="page-item disabled"><a class="page-link" href="#">Page: {{ paginator.page }} of {{ paginator.total_pages }}</a></li>
+    {% else %}
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    {% endif %}
+    <li class="page-item disabled"><a class="page-link" href="#">Page: {{ paginator.page }} of
+        {{ paginator.total_pages }}</a></li>
     {% if paginator.next_page %}
     <li class="page-item">
-      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+      <a href="{{ paginator.next_page_path }}" class="next page-link">Next</a>
     </li>
-  {% else %}
-  <li class="page-item disabled">
-    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-  </li>
-  {% endif %}
+    {% else %}
+    <li class="page-item disabled">
+      <a href="{{ paginator.next_page_path }}" class="next page-link">Next</a>
+    </li>
+    {% endif %}
   </ul>
 </nav>
 <!-- from: https://jekyllrb.com/docs/pagination/ and https://getbootstrap.com/docs/5.3/components/pagination/-->
