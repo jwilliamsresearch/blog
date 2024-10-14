@@ -50,10 +50,11 @@ layout: default
 
 <nav class="ms-auto me-auto" aria-label="Pagination Navigation">
   <ul class="pagination justify-content-center">
-    
     {% if paginator.previous_page %}
     <li class="page-item">
-      <a class="page-link">Previous</a>
+      <a href="{{ paginator.previous_page_path }}" class="previous">
+        Previous
+      </a>
     </li>
   {% else %}
   <li class="page-item disabled">
