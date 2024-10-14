@@ -64,15 +64,15 @@ layout: default
         <a class="page-link text-black main-text"><i class="bi bi-arrow-left-square-fill"></i> Previous</a>
       </li>
       {% endif %}
-      <li class="page-item disabled w-100 text-center"><a class="page-link text-black main-text" href="#"><i class="bi bi-file-earmark"></i> Page: {{ paginator.page }} of
+      <li class="page-item disabled w-100 text-center"><a class="page-link text-black main-text text-center" href="#"><i class="bi bi-file-earmark"></i> Page: {{ paginator.page }} of
           {{ paginator.total_pages }}</a></li>
       {% if paginator.next_page %}
       <li class="page-item w-100 text-end">
-        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text">Next <i class="bi bi-arrow-right-square-fill"></i></a>
+        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text text-end">Next <i class="bi bi-arrow-right-square-fill"></i></a>
       </li>
       {% else %}
       <li class="page-item disabled w-100 text-end">
-        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text">Next <i class="bi bi-arrow-right-square-fill"></i></a>
+        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text text-end">Next <i class="bi bi-arrow-right-square-fill"></i></a>
       </li>
       {% endif %}
     </ul>
