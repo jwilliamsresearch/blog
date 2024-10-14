@@ -48,22 +48,28 @@ layout: default
   {% endfor %}
 </div>
 
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">
-      Previous
-    </a>
+<nav aria-label="Pagination Navigation ms-auto me-auto">
+  <ul class="pagination justify-content-center">
+    
+    {% if paginator.previous_page %}
+    <li class="page-item">
+      <a class="page-link">Previous</a>
+    </li>
   {% else %}
-    <span class="previous">Previous</span>
+  <li class="page-item disabled">
+    <a class="page-link">Previous</a>
+  </li>
   {% endif %}
-  <span class="page_number ">
-    Page: {{ paginator.page }} of {{ paginator.total_pages }}
-  </span>
-  {% if paginator.next_page %}
+    <li class="page-item disabled"><a class="page-link" href="#">Page: {{ paginator.page }} of {{ paginator.total_pages }}</a></li>
+    {% if paginator.next_page %}
+    <li class="page-item">
+      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    </li>
+  {% else %}
+  <li class="page-item disabled">
     <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-  {% else %}
-    <span class="next ">Next</span>
+  </li>
   {% endif %}
-</div>
-<!-- from: https://jekyllrb.com/docs/pagination/-->
+  </ul>
+</nav>
+<!-- from: https://jekyllrb.com/docs/pagination/ and https://getbootstrap.com/docs/5.3/components/pagination/-->
