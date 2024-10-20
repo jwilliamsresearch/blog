@@ -8,7 +8,9 @@ author: J. Williams
 keywords: Website Development, Software Development, Personal Website
 displaytheme: '#2d3142'
 maskimage: architecture.png
-icon: bi-file-code-fill
+icon: bi-pc-display-horizontal
+lastupdate: 2024-10-20
+updatereason: "Changed post icon. Updated lists."
 ---
 You may have realised while browsing this website that it has been recently updated and under development. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
 
@@ -64,7 +66,7 @@ As part of this development and learning process, I have identified the followin
 
 - The videos on the research project pages need to be better optimised for networks.
 - The software page is not yet complete and a layout is not yet planned.
-- The blog does not have pagination at the moment.
+- The blog does not have pagination at the moment (Note: This has been completed.)
 - Several images should also be optimised.
 
 #### Future Goals
