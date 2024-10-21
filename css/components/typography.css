@@ -27,3 +27,7 @@ article a {
 .entry h3 {
     margin-top: 64px;
 }
+
+#alt-text {
+    padding-right: 140px !important;
+}

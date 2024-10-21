@@ -32,6 +32,8 @@ url: https://blog.jwilliams.science
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: ""
 
+plugins: [jekyll-paginate]
+
 paginate: 4
 
 #

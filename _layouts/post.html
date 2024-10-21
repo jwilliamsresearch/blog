@@ -41,9 +41,34 @@ layout: default
     </div>
 </div>
 
-  <div class="entry container p-4">
-    {{ content }}
-  </div>
-
-
+<div class="entry container p-4">
+  {{ content }}
+</div>
 </article>
+
+<div class="modal fade" id="modal-image" tabindex="-1" aria-labelledby="modal-image" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-body p-0 text-center">
+        <button type="button" class="btn btn btn-dark position-fixed top-0 end-0 m-3 p-2 z-3" data-bs-dismiss="modal" aria-label="Close">CLOSE <i class="ms-2 bi bi-x-lg"></i></button>
+        <img id="opened-image" class="mh-100 mw-100 position-absolute top-50 start-50 translate-middle" data-bs-dismiss="modal">
+        <p id="alt-text" class="position-absolute top-0 start-50 translate-middle-x p-4 bg-light text-black mb-0 w-100">Alt text</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const articleImages = document.querySelectorAll('article img');
+
+articleImages.forEach(image => {
+  image.addEventListener('click', () => {
+    console.log('Image clicked:', image.src);
+    const myModal = new bootstrap.Modal(document.getElementById('modal-image'));
+    document.getElementById('opened-image').src = image.src;
+    document.getElementById('opened-image').alt = image.alt;
+    document.getElementById('alt-text').textContent = image.alt;
+    myModal.show();
+  });
+});
+</script>

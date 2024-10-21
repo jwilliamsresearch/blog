@@ -11,6 +11,15 @@
   margin-right: auto;
 }
 
+.entry .row img {
+  max-width: 100%;
+}
+
+.entry .entry-side {
+  max-width: 400px;
+  width: 100%;
+}
+
 /* Word Cloud */
 
 #wordcloud-output {
