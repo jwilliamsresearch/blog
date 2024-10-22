@@ -20,6 +20,15 @@
   width: 100%;
 }
 
+#opened-image {
+  padding: 24px;
+  padding-top: 80px;
+}
+
+#alt-text {
+  font-size: 1rem;
+}
+
 /* Word Cloud */
 
 #wordcloud-output {

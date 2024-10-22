@@ -5,7 +5,7 @@ subtitle: "An overview of my new academic portfolio website architecture, explai
 lead: "Over the past couple of months I have been re-designing and building a new online portfolio for my work. This article will explore my design choices and experience in developing jwilliams.science."
 brief: "This article will explore my experience of developing a new website for use as my main portfolio of work. My previous website had been developed and not updated for roughly three years and the new website will support enhanced project and blog-based updates. This article shares a few thoughts about my experiences in designing the new online presence."
 author: J. Williams
-keywords: Website Development, Software Development, Personal Website
+tags: Website Development Software Design
 displaytheme: '#2d3142'
 maskimage: architecture.png
 icon: bi-pc-display-horizontal
@@ -20,7 +20,7 @@ This article will briefly present the current status of the website architecture
 
 ### Website Architecture
 
-![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected is are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.svg)
+![Diagram presenting the main domain (jwilliams.science) with research publications and software development linked. Connected are linked domains (blog.jwilliams.science/etc.jwilliams.science) showing blog overview/posts and extended projects respectively. ](../images/posts/2024-10-12/webarchitecture.svg)
 
 The new website layout is split into three core components. These components are represented in the diagram above and include the main website ([https://jwilliams.science](https://jwilliams.science)) representing the project and software overviews, the blog website ([https://blog.jwilliams.science](https://blog.jwilliams.science)) representing this blog, and the potential for future sub-domains for projects (e.g., [https://lwswg.jwilliams.science](https://lwswg.jwilliams.science)).
 
