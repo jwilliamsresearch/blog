@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Designing a New Website and Blog: Overview and Architecture"
+title: "Designing a New Website and Blog
 subtitle: "An overview of my new academic portfolio website architecture, explaining the design considerations and organisation."
 lead: "Over the past couple of months I have been re-designing and building a new online portfolio for my work. This article will explore my design choices and experience in developing jwilliams.science."
 brief: "This article will explore my experience of developing a new website for use as my main portfolio of work. My previous website had been developed and not updated for roughly three years and the new website will support enhanced project and blog-based updates. This article shares a few thoughts about my experiences in designing the new online presence."
@@ -9,8 +9,8 @@ tags: Website Development Software Design
 displaytheme: '#2d3142'
 maskimage: architecture.png
 icon: bi-pc-display-horizontal
-lastupdate: 2024-10-20
-updatereason: "Changed post icon. Updated lists."
+lastupdate: 2025-01-25
+updatereason: "Changed post icon. Updated lists. New title."
 ---
 You may have realised while browsing this website that it has been recently updated and under development. The new website has been designed to enhance the presentation of research conducted and support more engaging overviews of my work. As part of this process, the website has undergone several improvements in technology and domain organisation.
 
