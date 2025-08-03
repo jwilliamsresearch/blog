@@ -3,11 +3,11 @@ layout: post
 title: "Why 'Placing Code' Matters"
 subtitle: "A manifesto for place-aware software development and spatial computing"
 lead: "Most navigation apps don't know where you really want to go. This opening post explores why we need code that understands the difference between space and place, and introduces the philosophy behind jwilliams.science."
-brief: "This manifesto-style post introduces the concept of 'placing code'—software development that respects geography, culture, and context. Drawing from research in Geographic Information Science and platial information systems, it argues for technology that serves human spatial relationships rather than replacing them."
+brief: "This manifesto-style post introduces the concept of 'placing code' - software development that respects geography, culture, and context. Drawing from research in Geographic Information Science and platial information systems, it argues for technology that serves human spatial relationships rather than replacing them."
 author: J. Williams
 tags: Platial Information Geographic Information Science Software Development Place-Based Computing
 displaytheme: '#1a5490'
-maskimage: dalletown.webp
+maskimage: placeincode.png
 icon: bi-geo-alt
 ---
 Most navigation apps don't know where you really want to go.
@@ -15,6 +15,12 @@ Most navigation apps don't know where you really want to go.
 I realised this during my PhD research on leisure walking routes, watching people describe their walks in ways that no algorithm could capture. The GPS data showed coordinates and distances, but missed everything that made the walk meaningful: the stories, the views, the feeling of being in a particular place at a particular time.
 
 This is the problem with placeless code. We keep building location-aware systems that know where things are but not what they mean. We optimise for efficiency instead of experience, for shortest paths instead of most interesting ones. The result is technology that can guide us anywhere but can't tell us why we'd want to go there.
+
+
+![Abstract architectural layering representing code and place](../images/titles/placeincode.png)
+
+*Abstract architectural forms evoking the layered nature of code, infrastructure, and geography - a visual metaphor for platial computing.*
+*Image generated with ChatGPT (DALL·E 3), OpenAI, 2025.*
 
 ## What Is "Placing Code"?
 
@@ -46,7 +52,7 @@ Consider how mapping applications handle pedestrian navigation in urban areas. R
 
 My journey through computer science research - from undergraduate work through my PhD at the Nottingham Geospatial Institute - has shown me that spatial problems are fundamentally human problems. They require understanding not just where things are, but how people experience and move through the world. Solving them requires combining computational power with deep attention to place-based knowledge.
 
-This is especially important as location-based services become more ubiquitous. Our phones track our every movement, our apps claim to know what we need, but too often they're optimizing for metrics that miss the point entirely. We need technology that understands geography as more than just coordinates as the lived, experienced, culturally embedded reality of how people actually inhabit space.
+This is especially important as location-based services become more ubiquitous. Our phones track our every movement, our apps claim to know what we need, but too often they're optimising for metrics that miss the point entirely. We need technology that understands geography as more than just coordinates as the lived, experienced, culturally embedded reality of how people actually inhabit space.
 
 The stakes extend beyond individual user experience. Urban planning increasingly relies on data from location-based applications, creating feedback loops where algorithmic assumptions about how people move through space influence decisions about how cities are designed. If our foundational spatial computing systems don't understand place, we risk building cities that serve algorithms rather than people.
 
