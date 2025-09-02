@@ -1,33 +1,90 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Basic Text and Content Changes */
+/* Enhanced Typography System */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'liga' on, 'kern' on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
 
 h3 {
     font-size: 3rem;
+    position: relative;
+    display: inline-block;
 }
 
-p, .main-text, article li {
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #7068d7, #68cfd7);
+    border-radius: 2px;
+}
+
+p, .main-text {
     font-size: 1.2rem;
-    letter-spacing: .5px;
+    letter-spacing: .3px;
     word-spacing: 1px;
     text-align: justify;
-  text-justify: inter-word;
+    text-justify: inter-word;
+    line-height: 1.7;
+    color: #495057;
 }
 
 .lead {
     font-size: 1.5rem;
-    letter-spacing: 1px;
-    word-spacing: 2px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    line-height: 1.6;
+    color: #343a40;
 }
 
-article a {
-    text-decoration: none;
+/* Enhanced button styles */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.entry h3 {
-    margin-top: 64px;
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
-#alt-text {
-    padding-right: 140px !important;
+.btn:hover::before {
+    left: 100%;
 }
+
+.btn-success {
+    background: linear-gradient(135deg, #4ac97f, #16a091);
+    border: none;
+    box-shadow: 0 4px 12px rgba(74, 201, 127, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 201, 127, 0.4);
+}
+

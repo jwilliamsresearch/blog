@@ -1,19 +1,45 @@
-/* Main Colours */
+/* Main Colours with Enhanced Gradients */
 
 .bg-purple {
-    background-color: #7068d7;
+    background: linear-gradient(135deg, #7068d7 0%, #8b7ed8 50%, #9d8ce1 100%);
+    box-shadow: 0 4px 20px rgba(112, 104, 215, 0.3);
+    position: relative;
+    overflow: hidden;
+    color: white !important;
+}
+
+.bg-purple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bg-purple:hover::before {
+    opacity: 1;
 }
 
 .bg-cyan {
-    background-color: #68cfd7;
+    background: linear-gradient(135deg, #68cfd7 0%, #7dd3db 50%, #92d7df 100%);
+    box-shadow: 0 4px 20px rgba(104, 207, 215, 0.3);
+    color: white !important;
 }
 
 .bg-greendark {
-    background-color: #16a091;
+    background: linear-gradient(135deg, #16a091 0%, #1eb3a1 50%, #26c6b1 100%);
+    box-shadow: 0 4px 20px rgba(22, 160, 145, 0.3);
+    color: white !important;
 }
 
 .bg-green {
-    background-color: #4ac97f;
+    background: linear-gradient(135deg, #4ac97f 0%, #5dd18f 50%, #70d99f 100%);
+    box-shadow: 0 4px 20px rgba(74, 201, 127, 0.3);
+    color: white !important;
 }
 
 /* Research Colours */
@@ -40,6 +66,6 @@
     background: url("../../media/img/background2.png");
 }
 
-.mask-farm {
-    background: url("../../images/blogbackground.jpg");
+.mask-night {
+    background: url("../../media/img/background3.png");
 }

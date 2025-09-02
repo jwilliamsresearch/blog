@@ -6,9 +6,59 @@
     }
 }
 
+/* Enhanced Cards and Interactive Elements */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background: white;
+}
+
+/* Only apply hover effects to project cards, not publication cards */
+.card:hover:not(.bibtex_template):not(.bibtex_display .card) {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* NO HOVER ANIMATIONS ON PUBLICATIONS */
+.bibtex_display .card:hover {
+    /* No transforms or movement animations */
+}
+
+/* Only apply gradient bars to project cards, not publication cards */
+.container .row-cols-lg-3 .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7068d7, #68cfd7, #4ac97f);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container .row-cols-lg-3 .card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced Grid Layout */
+.row.g-4 > .col {
+    padding: 1rem;
+}
+
+.row.g-4 > .col > .card {
+    height: 100%;
+}
+
 /* Helper-style notification */
 .helper-notification {
-    border-radius: 4px;
+    border-radius: 8px;
+    border-left: 4px solid #7068d7;
+    background: linear-gradient(135deg, rgba(112, 104, 215, 0.1) 0%, rgba(104, 207, 215, 0.05) 100%);
 }
 
 /* Aims */
@@ -45,12 +95,153 @@
 
 .bibtex_display .YEAR {
     font-weight: 300 !important;
+    font-size: 2rem;
+    color: #7068d7;
+    position: relative;
+    margin: 2rem 0 1rem 0;
+    padding-left: 1rem;
+}
+
+.bibtex_display .YEAR::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(135deg, #7068d7, #68cfd7);
+    border-radius: 2px;
+    transform: translateY(-50%);
 }
 
 .bibtex_display a {
-    color: black;
+    color: #495057 !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.bibtex_display a:hover {
+    color: #7068d7 !important;
+    text-decoration: underline;
+}
+
+.bibtex_display small {
+    color: #6c757d !important;
+}
+
+.bibtex_display .title {
+    color: #212529 !important;
+    font-weight: 600;
+}
+
+.bibtex_display .author {
+    color: #495057 !important;
 }
 
 .bibtex_display code {
     color: #6b6b6b;
+    background: rgba(112, 104, 215, 0.05);
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Enhanced bibtex cards - Fixed for proper display */
+.bibtex_display .card {
+    background: white !important;
+    color: #212529 !important;
+    border: 1px solid #e9ecef;
+}
+
+.bibtex_display .card-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    color: #212529 !important;
+}
+
+.bibtex_display .card-body {
+    background: #ffffff !important;
+    color: #495057 !important;
+}
+
+.bibtex_display .card-footer {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+}
+
+/* Badge enhancements for publication types */
+.bg-INPROCEEDINGS {
+    background: linear-gradient(135deg, #6f42c1, #8f5ed6) !important;
+}
+
+.bg-ARTICLE {
+    background: linear-gradient(135deg, #17a2b8, #20c997) !important;
+}
+
+.bg-MASTERSTHESIS {
+    background: linear-gradient(135deg, #fd7e14, #ffc107) !important;
+}
+
+/* Bibtex display fixes (moved from separate file) */
+.bibtex_template {
+    display: none !important;
+}
+
+.bibtex_display {
+    color: #212529;
+}
+
+/* Ensure proper visibility and styling of generated publication cards */
+.bibtex_display .card {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: white !important;
+    color: #212529 !important;
+    border: 1px solid #dee2e6 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Fix button styling in bibtex cards */
+.bibtex_display .btn {
+    background: #f8f9fa !important;
+    color: #495057 !important;
+    border: 1px solid #dee2e6 !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.bibtex_display .btn:hover {
+    background: #7068d7 !important;
+    color: white !important;
+    border-color: #7068d7 !important;
+    /* NO MOVEMENT ANIMATIONS */
+}
+
+/* Ensure badges display properly */
+.bibtex_display .badge {
+    color: white !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease;
+}
+
+.bibtex_display .badge:hover {
+    /* Absolutely no movement */
+}
+
+/* Fix collapsible sections */
+.bibtex_display .collapse {
+    color: #495057 !important;
+}
+
+/* Ensure text is readable */
+.bibtex_display .card-header * {
+    color: #212529 !important;
+}
+
+.bibtex_display .card-body * {
+    color: #495057 !important;
+}
+
+.bibtex_display .card-footer * {
+    color: #6c757d !important;
 }

@@ -16,8 +16,16 @@
 
 .navbar {
     min-height: 120px;
-    background: rgba(250, 249, 246, 0.8) !important;
+    background: rgba(250, 249, 246, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(112, 104, 215, 0.1);
+    transition: all 0.3s ease;
+}
 
+.navbar.scrolled {
+    min-height: 80px;
+    background: rgba(250, 249, 246, 0.98) !important;
 }
 
 .navbar-brand {
@@ -33,6 +41,15 @@
     text-transform: uppercase;
     padding-left: 16px !important;
     padding-right: 16px !important;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    background: rgba(112, 104, 215, 0.1);
+    transform: translateY(-2px);
+    color: #7068d7 !important;
 }
 
 .nav-link.active:after {

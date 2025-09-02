@@ -1,0 +1,137 @@
+/* Sketch Animation Styles - Index Page Only */
+
+.sketch-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.sketch-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    max-width: 250px;
+    max-height: 250px;
+    opacity: 0;
+    transition: all 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: grayscale(15%) sepia(8%) contrast(95%) brightness(98%);
+    mix-blend-mode: multiply;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Ensure main content appears above sketch background */
+.central-holder {
+    position: relative;
+    z-index: 10;
+}
+
+/* Responsive adjustments for sketch elements */
+@media (max-width: 768px) {
+    .sketch-element {
+        max-width: 180px;
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sketch-element {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+
+/* Improve contrast on sketch elements for light backgrounds */
+@media (prefers-color-scheme: light) {
+    .sketch-element {
+        filter: grayscale(25%) sepia(12%) contrast(90%) brightness(92%);
+        opacity: 0.35;
+    }
+}
+
+/* Adjust for dark mode if needed */
+@media (prefers-color-scheme: dark) {
+    .sketch-element {
+        filter: grayscale(35%) sepia(8%) contrast(100%) brightness(105%) invert(8%);
+        opacity: 0.25;
+    }
+}
+
+/* Animation variants for more natural movement - DISABLED TO FIX POSITIONING */
+/*
+.sketch-element.variant-1 {
+    animation: float-gentle 20s ease-in-out infinite;
+}
+
+.sketch-element.variant-2 {
+    animation: drift-slow 25s ease-in-out infinite;
+}
+
+.sketch-element.variant-3 {
+    animation: subtle-rotate 30s linear infinite;
+}
+*/
+
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+@keyframes drift-slow {
+    0%, 100% {
+        transform: translateX(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateX(5px) rotate(-1deg);
+    }
+}
+
+@keyframes subtle-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Performance optimizations */
+.sketch-background {
+    will-change: contents;
+}
+
+.sketch-element {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .sketch-element {
+        animation: none !important;
+        transition: opacity 1000ms ease-in-out !important;
+    }
+    
+    .sketch-element.variant-1,
+    .sketch-element.variant-2,
+    .sketch-element.variant-3 {
+        animation: none !important;
+    }
+}

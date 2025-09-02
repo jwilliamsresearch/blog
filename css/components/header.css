@@ -2,16 +2,77 @@
 
 .header-base {
     overflow: hidden;
-    background-image: linear-gradient(rgba(44, 62, 80, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 62, 80, 0.08) 1px, transparent 1px), linear-gradient(rgba(44, 62, 80, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 62, 80, 0.03) 1px, transparent 1px);
-    background-size: 25px 25px, 25px 25px, 5px 5px, 5px 5px;
-    background-position: 0 0, 0 0, 0 0, 0 0;
+    position: relative;
+    /* Enhanced grid paper background with depth */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background-image: 
+        /* Main grid lines */
+        linear-gradient(rgba(44, 62, 80, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 62, 80, 0.12) 1px, transparent 1px),
+        /* Sub-grid lines */
+        linear-gradient(rgba(44, 62, 80, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 62, 80, 0.04) 1px, transparent 1px),
+        /* Subtle diagonal pattern for depth */
+        linear-gradient(45deg, transparent 24px, rgba(108, 117, 125, 0.02) 25px, rgba(108, 117, 125, 0.02) 26px, transparent 27px, transparent 74px, rgba(108, 117, 125, 0.02) 75px, rgba(108, 117, 125, 0.02) 76px, transparent 77px);
+    background-size: 
+        25px 25px,
+        25px 25px,
+        5px 5px,
+        5px 5px,
+        100px 100px;
+    background-position: 
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+}
+
+/* Add subtle geometric shapes in corners */
+.header-base::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(112, 104, 215, 0.1), rgba(104, 207, 215, 0.1));
+    transform: rotate(45deg);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.header-base::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, rgba(74, 201, 127, 0.1), rgba(22, 160, 145, 0.1));
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    z-index: 1;
 }
 
 .header-base h1 {
-    font-size: 4.5rem;
-
+    font-size: 6rem;
+    position: relative;
+    z-index: 10;
+    
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+    
+    /* Add subtle text shadow for depth */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Smooth hover effect */
+    transition: all 0.3s ease-in-out;
+}
+
+.header-base h1:hover {
+    transform: translateY(-2px);
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -35,12 +96,28 @@
     font-weight: 400;
     font-style: normal;
     font-size: 1.5rem;
-
+    position: relative;
+    z-index: 10;
+    
     animation-delay: 1s;
+    
+    /* Enhanced typography */
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.header-base .date {
-    animation-delay: 1.5s;
+/* Add subtle backdrop blur effect */
+.central-container {
+    backdrop-filter: blur(0.5px);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.central-container:hover {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1px);
 }
 
 .header-base h1.clip {
@@ -84,7 +161,7 @@
 .header-video {
     z-index: 20;
     position: relative;
-    background: transparent;
+    background-color: #121212;
 }
 
 .header-video .central-container:before {
