@@ -1,0 +1,145 @@
+/* Enhanced Interactions Fixes - Ensure custom colors and background images work */
+
+/* Fix for background images in clip text */
+.header-base h1.clip {
+    color: transparent !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-repeat: no-repeat !important;
+}
+
+/* CRITICAL: Force custom displaytheme colors to work */
+article[style*="background-color:"] {
+    background: var(--custom-bg) !important;
+    color: white !important;
+}
+
+/* Force all blog post sections to use their custom colors */
+.posts article,
+.post article {
+    background: var(--custom-bg) !important;
+    color: white !important;
+}
+
+/* Ensure text is white in colored sections */
+.posts article h3,
+.posts article h4,
+.posts article h5,
+.posts article p,
+.posts article .lead,
+.posts article a,
+.post article h3,
+.post article h4,
+.post article h5,
+.post article p,
+.post article .lead,
+.post article a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Remove underlines from all links in colored sections */
+.posts article a,
+.post article a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* Fix for custom displaytheme colors - more specific */
+[style*="background-color:"] {
+    color: white !important;
+}
+
+[style*="background-color:"] h3,
+[style*="background-color:"] h4,
+[style*="background-color:"] h5,
+[style*="background-color:"] p,
+[style*="background-color:"] .lead,
+[style*="background-color:"] a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+/* Ensure Bootstrap Icons are visible */
+.bi {
+    display: inline-block;
+    font-family: "bootstrap-icons" !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent enhanced-interactions from overriding important styles */
+.geometric-bg {
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
+
+.scroll-indicator {
+    z-index: 9999 !important;
+}
+
+/* Ensure reveal animations don't break layout */
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.reveal.revealed {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Fix for navbar shrink */
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure card enhancements don't break existing styles */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Fix for any transform conflicts */
+.card:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fix for images in posts - contain them to 80% */
+.entry img,
+.post img,
+article img {
+    max-width: 80% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1rem auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Override any enhanced-interactions background interference */
+.bg-green {
+    background: linear-gradient(135deg, #4ac97f 0%, #5dd18f 50%, #70d99f 100%) !important;
+    box-shadow: 0 4px 20px rgba(74, 201, 127, 0.3) !important;
+    color: white !important;
+}
+
+/* Force all links to not be underlined */
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
