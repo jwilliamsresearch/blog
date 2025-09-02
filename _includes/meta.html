@@ -3,6 +3,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
+    <!-- SEO Meta Tags -->
     {% if page.excerpt %}
     <meta name="description" content="{{ page.excerpt| strip_html }}" />
     <meta property="og:description" content="{{ page.excerpt| strip_html }}" />
@@ -10,9 +11,62 @@
     <meta name="description" content="{{ site.description }}">
     <meta property="og:description" content="{{ site.description }}" />
     {% endif %}
-    <meta name="author" content="{{ site.name }}" />
-
+    
+    <meta name="author" content="{{ page.author | default: site.name }}" />
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}" />
+    
+    <!-- Open Graph / Facebook -->
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.name }}" />
+    {% if page.maskimage %}
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/titles/{{ page.maskimage }}" />
+    {% endif %}
+    {% endif %}
+    
+    <!-- Twitter -->
+    {% if page.title %}
     <meta property="twitter:title" content="{{ page.title }}" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}" />
+    {% if page.maskimage %}
+    <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/images/titles/{{ page.maskimage }}" />
+    {% endif %}
+    {% endif %}
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    
+    <!-- Structured Data for Articles -->
+    {% if page.title %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{ page.title }}",
+      "description": "{{ page.excerpt | strip_html | default: page.brief }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author | default: site.name }}"
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      {% if page.lastupdate %}
+      "dateModified": "{{ page.lastupdate | date_to_xmlschema }}",
+      {% endif %}
+      "publisher": {
+        "@type": "Organization",
+        "name": "{{ site.name }}",
+        "url": "{{ site.url }}"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      }
+    }
+    </script>
     {% endif %}
