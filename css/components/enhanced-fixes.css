@@ -14,14 +14,12 @@
 
 /* CRITICAL: Force custom displaytheme colors to work */
 article[style*="background-color:"] {
-    background: var(--custom-bg) !important;
     color: white !important;
 }
 
 /* Force all blog post sections to use their custom colors */
 .posts article,
 .post article {
-    background: var(--custom-bg) !important;
     color: white !important;
 }
 
@@ -133,6 +131,21 @@ article img {
     background: linear-gradient(135deg, #4ac97f 0%, #5dd18f 50%, #70d99f 100%) !important;
     box-shadow: 0 4px 20px rgba(74, 201, 127, 0.3) !important;
     color: white !important;
+}
+
+/* CRITICAL: Preserve custom displaytheme colors and ensure they work */
+div[style*="background-color:"] {
+    color: white !important;
+}
+
+div[style*="background-color:"] h3,
+div[style*="background-color:"] h4,
+div[style*="background-color:"] h5,
+div[style*="background-color:"] p,
+div[style*="background-color:"] .lead,
+div[style*="background-color:"] a {
+    color: white !important;
+    text-decoration: none !important;
 }
 
 /* Force all links to not be underlined */
