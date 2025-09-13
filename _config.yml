@@ -34,7 +34,7 @@ baseurl: ""
 
 plugins: [jekyll-paginate]
 
-paginate: 4
+paginate: 8
 
 #
 # !! You don't need to change any of the configuration flags below !!

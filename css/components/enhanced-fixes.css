@@ -163,6 +163,19 @@ a:hover {
     text-decoration: none !important;
 }
 
+/* Home post cards grid */
+.posts-grid { align-items: stretch; }
+.post-card { border-radius: 14px; overflow: hidden; border: none; background: #fff; box-shadow: 0 6px 22px rgba(0,0,0,.06); transition: transform .12s ease, box-shadow .2s ease; }
+.post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.09); }
+.post-cover { height: 180px; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.post-title { color: #2c3e50; }
+.post-subtitle { color: #6b7280; min-height: 2.5rem; }
+.post-meta { color: #6b7280; }
+.tag-chip { display: inline-block; padding: .15rem .5rem; border-radius: 999px; font-size: .75rem; background: rgba(45,49,66,.08); color: #2d3142; }
+
+@media (max-width: 576px) {
+    .post-cover { height: 160px; }
+}
 /* Modern pagination styles */
 .pagination-modern .pagination {
     gap: .25rem;
