@@ -28,6 +28,12 @@ My workflow reflects these commitments in practice. I write in Markdown to keep 
 
 What excites me most is that Reveal.js is not limited to static text and images. I can demonstrate live CSS examples directly within the slides, showing how a single change in code alters the layout or colours of a webpage in real time. In data-driven modules, I can embed Chart.js diagrams that animate as values update, helping students see immediately how an algorithm or dataset is behaving. For geospatial teaching, I can drop in a Leaflet map that students can pan and zoom, overlaying live spatial data rather than relying on screenshots. These forms of interactivity bridge the gap between explanation and demonstration, allowing the lecture itself to become a working lab environment.  
 
+<figure class="text-center">
+	<img src="{{ site.baseurl }}/images/titles/{{ page.maskimage }}" alt="{{ page.title }} — cover image" />
+	<figcaption class="mt-2">Cover image for this post, representing a lecturer using a laptop.</figcaption>
+  
+</figure>
+
 ## Managing Risks  
 Of course, openness introduces risks. Materials may circulate out of context, intellectual property can be uncertain, and version drift across module iterations is inevitable. I address these by adding framing notes, citing or linking to third-party content carefully, dating releases, and clarifying which version applies to assessment. Crucially, publishing slides does not replace the dynamics of the classroom. Polls, discussions, and collaborative whiteboarding remain central; the slides are a complement, not a substitute, for the live experience.  
 
