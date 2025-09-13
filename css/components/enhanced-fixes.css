@@ -148,6 +148,12 @@ div[style*="background-color:"] a {
     text-decoration: none !important;
 }
 
+/* If an element declares an inline background-color, disable theme gradients */
+.bg-green[style*="background-color:"],
+[style*="background-color:"] {
+    background-image: none !important;
+}
+
 /* Force all links to not be underlined */
 a {
     text-decoration: none !important;
