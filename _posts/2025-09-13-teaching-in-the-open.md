@@ -5,7 +5,7 @@ subtitle: "Rethinking accessibility, openness, and pedagogy in digital teaching"
 lead: "Lecture slides are rarely neutral artefacts: they embody choices about what knowledge is shared, how it is structured, and who has access to it. By publishing my teaching openly with Reveal.js, I am exploring how digital tools can reshape the relationship between lecturer, student, and wider community."
 brief: "A reflection on why I use Reveal.js to share my lectures online, the pedagogical values this expresses, and how open materials contribute to accessibility, transparency, and the evolving role of the university."
 author: J. Williams
-tags: Teaching Reveal.js OnlineLearning OpenEducation Pedagogy DigitalHumanities
+tags: Teaching Reveal.js OnlineLearning OpenEducation Pedagogy
 displaytheme: '#41b9c2ff'
 maskimage: lectures-online.png
 icon: bi-journal-text
