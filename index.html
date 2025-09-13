@@ -51,33 +51,62 @@ layout: default
   {% endfor %}
 </div>
 
+{% if paginator.total_pages > 1 %}
 <div class="container">
-  <nav class="ms-auto me-auto mt-4 mb-4" aria-label="Pagination Navigation">
-    <ul class="pagination justify-content-center d-flex">
-      {% if paginator.previous_page %}
-      <li class="page-item w-100">
-        <a href="{{ paginator.previous_page_path }}" class="previous page-link text-black main-text">
-          <i class="bi bi-arrow-left-square-fill"></i> Previous 
+  <nav class="pagination-modern mt-4 mb-5" aria-label="Pagination Navigation">
+    <ul class="pagination justify-content-center flex-wrap gap-2">
+      {% comment %} First & Prev {% endcomment %}
+      <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
+        <a class="page-link" href="{% if paginator.previous_page %}{{ site.baseurl }}/{% else %}#{% endif %}" aria-label="First">
+          <i class="bi bi-chevron-double-left" aria-hidden="true"></i>
         </a>
       </li>
-      {% else %}
-      <li class="page-item disabled w-100">
-        <a class="page-link text-black main-text"><i class="bi bi-arrow-left-square-fill"></i> Previous</a>
+      <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
+        <a class="page-link" href="{% if paginator.previous_page %}{{ site.baseurl }}{{ paginator.previous_page_path }}{% else %}#{% endif %}" aria-label="Previous">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </a>
       </li>
-      {% endif %}
-      <li class="page-item disabled w-100 text-center"><a class="page-link text-black main-text text-center" href="#"><i class="bi bi-file-earmark"></i> Page: {{ paginator.page }} of
-          {{ paginator.total_pages }}</a></li>
-      {% if paginator.next_page %}
-      <li class="page-item w-100 text-end">
-        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text text-end">Next <i class="bi bi-arrow-right-square-fill"></i></a>
+
+      {% comment %} Numbered pages with smart ellipses {% endcomment %}
+      {% assign prev_shown = 0 %}
+      {% for i in (1..paginator.total_pages) %}
+        {% assign show = false %}
+        {% if i == 1 or i == paginator.total_pages or i == paginator.page %}
+          {% assign show = true %}
+        {% endif %}
+        {% if i == paginator.page | minus: 1 or i == paginator.page | plus: 1 %}
+          {% assign show = true %}
+        {% endif %}
+
+        {% if show %}
+          {% if prev_shown != 0 and i > prev_shown | plus: 1 %}
+            <li class="page-item disabled"><span class="page-link ellipsis" aria-hidden="true">&hellip;</span></li>
+          {% endif %}
+          <li class="page-item {% if i == paginator.page %}active{% endif %}" aria-current="{% if i == paginator.page %}page{% endif %}">
+            <a class="page-link" href="{% if i == 1 %}{{ site.baseurl }}/{% else %}{{ site.baseurl }}/page{{ i }}/{% endif %}">{{ i }}</a>
+          </li>
+          {% assign prev_shown = i %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} Next & Last {% endcomment %}
+      <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
+        <a class="page-link" href="{% if paginator.next_page %}{{ site.baseurl }}{{ paginator.next_page_path }}{% else %}#{% endif %}" aria-label="Next">
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </a>
       </li>
-      {% else %}
-      <li class="page-item disabled w-100 text-end">
-        <a href="{{ paginator.next_page_path }}" class="next page-link text-black main-text text-end">Next <i class="bi bi-arrow-right-square-fill"></i></a>
+      <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
+        <a class="page-link" href="{% if paginator.next_page %}{{ site.baseurl }}/page{{ paginator.total_pages }}/{% else %}#{% endif %}" aria-label="Last">
+          <i class="bi bi-chevron-double-right" aria-hidden="true"></i>
+        </a>
       </li>
-      {% endif %}
     </ul>
+    <div class="pagination-meta text-center mt-2">
+      <small>Page {{ paginator.page }} of {{ paginator.total_pages }}</small>
+    </div>
   </nav>
+  
 </div>
+{% endif %}
 
 <!-- from: https://jekyllrb.com/docs/pagination/ and https://getbootstrap.com/docs/5.3/components/pagination/-->
