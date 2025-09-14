@@ -22,12 +22,31 @@ layout: default
   <div class="col-12 col-md-6">
       {% capture cover_style %}{% if post.maskimage %}background-image: url('{{ site.baseurl }}/images/titles/{{ post.maskimage }}');{% else %}background-image: linear-gradient(135deg, var(--accent), #222);{% endif %}{% endcapture %}
       <a class="post-card d-block h-100 text-decoration-none" href="{{ site.baseurl }}{{ post.url }}" style="--accent: {{ post.displaytheme | default: '#2d3142' }};">
-        <div class="post-cover" role="img" aria-label="{{ post.title }}" style="{{ cover_style }}"></div>
+        <div class="post-cover position-relative" role="img" aria-label="{{ post.title }}" style="{{ cover_style }}">
+          {% assign days_since = 0 %}
+          {% if post.date %}
+            {% assign now_ts = "now" | date: "%s" %}
+            {% assign post_ts = post.date | date: "%s" %}
+            {% assign diff = now_ts | minus: post_ts %}
+            {% assign days_since = diff | divided_by: 86400 %}
+          {% endif %}
+          {% if days_since <= 14 %}
+            <span class="badge-new">New</span>
+          {% endif %}
+          {% if post.lastupdate %}
+            <span class="badge-updated">Updated</span>
+          {% endif %}
+        </div>
         <div class="post-body p-3">
           <h3 class="post-title h5 mb-2"><i class="bi {{ post.icon }} me-1"></i> {{ post.title }}</h3>
           <p class="post-subtitle text-muted small mb-2">{{ post.subtitle }}</p>
           <div class="post-meta d-flex align-items-center gap-3 mb-2">
             <span class="date small"><i class="bi bi-clock me-1"></i>{{ post.date | date: "%b %e, %Y" }}</span>
+            {% assign words = post.content | number_of_words %}
+            {% assign mins = words | divided_by: 200 %}
+            {% assign rem = words | modulo: 200 %}
+            {% if rem > 0 %}{% assign mins = mins | plus: 1 %}{% endif %}
+            <span class="time small"><i class="bi bi-journal-text me-1"></i>~{{ mins }} min</span>
             <span class="author small"><i class="bi bi-person me-1"></i>{{ post.author }}</span>
           </div>
           <div class="post-tags d-flex flex-wrap gap-1 mb-2">
@@ -68,12 +87,15 @@ layout: default
         {% if i == 1 or i == paginator.total_pages or i == paginator.page %}
           {% assign show = true %}
         {% endif %}
-        {% if i == paginator.page | minus: 1 or i == paginator.page | plus: 1 %}
+        {% assign prev_page = paginator.page | minus: 1 %}
+        {% assign next_page = paginator.page | plus: 1 %}
+        {% if i == prev_page or i == next_page %}
           {% assign show = true %}
         {% endif %}
 
         {% if show %}
-          {% if prev_shown != 0 and i > prev_shown | plus: 1 %}
+          {% assign prev_shown_plus_1 = prev_shown | plus: 1 %}
+          {% if prev_shown != 0 and i > prev_shown_plus_1 %}
             <li class="page-item disabled"><span class="page-link ellipsis" aria-hidden="true">&hellip;</span></li>
           {% endif %}
           <li class="page-item {% if i == paginator.page %}active{% endif %}" aria-current="{% if i == paginator.page %}page{% endif %}">
