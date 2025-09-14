@@ -154,6 +154,11 @@ div[style*="background-color:"] a {
     background-image: none !important;
 }
 
+/* Accent helper for post header block */
+.has-accent { background: var(--accent) !important; }
+.has-accent a { color: #fff !important; }
+.has-accent .tag-chip { background: rgba(255,255,255,.2) !important; color: #fff !important; border-color: rgba(255,255,255,.35) !important; }
+
 /* Force all links to not be underlined */
 a {
     text-decoration: none !important;

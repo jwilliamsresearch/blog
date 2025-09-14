@@ -17,7 +17,7 @@ layout: default
     </div>
   </div>
 
-  <div class="bg-green text-white pt-4 pb-4 mb-4" style="background-color: {{ page.displaytheme }} !important;">
+  <div class="bg-green text-white pt-4 pb-4 mb-4 has-accent" style="--accent: {{ page.displaytheme | default: '#2d3142' }};">
     <div id="context" class="container pt-4 pb-4">
         <div class="row">
             <div class="col-lg-7">
@@ -41,7 +41,11 @@ layout: default
         <h4><i class="bi bi-journal-text"></i> Reading Time</h4>
         <p>~{{ mins }} min read ({{ words }} words)</p>
                 <h4><i class="bi bi-chat-square-text"></i> Keywords</h4>
-                <p>{{ page.tags | join: ", " }}</p>
+                <div class="d-flex flex-wrap gap-1">
+                  {% for t in page.tags %}
+                  <a class="tag-chip" href="{{ site.baseurl }}/?tags={{ t | uri_escape }}" aria-label="Filter by tag {{ t }}">{{ t }}</a>
+                  {% endfor %}
+                </div>
             </div>
         </div>
     </div>
@@ -82,12 +86,8 @@ layout: default
   <div class="row g-3">
   {% for p in candidates limit:3 %}
     <div class="col-12 col-md-4">
-      <a href="{{ p.url | relative_url }}" class="card h-100 text-decoration-none">
-        {% if p.maskimage %}
-        <div class="card-cover" style="background-image: url('{{ site.baseurl }}/images/titles/{{ p.maskimage }}');" role="img" aria-label="{{ p.title }} cover image"></div>
-        {% else %}
-        <div class="card-cover" style="background-color: {{ p.displaytheme | default: '#2d3142' }};"></div>
-        {% endif %}
+      <a href="{{ p.url | relative_url }}" class="card h-100 text-decoration-none" style="--accent: {{ p.displaytheme | default: '#2d3142' }};">
+        <div class="card-cover" {% if p.maskimage %}data-cover="{{ site.baseurl }}/images/titles/{{ p.maskimage }}"{% endif %} role="img" aria-label="{{ p.title }} cover image"></div>
         <div class="card-body">
           <h5 class="card-title">{{ p.title }}</h5>
           <p class="card-text small text-muted mb-2">{{ p.date | date: "%B %e, %Y" }}</p>
@@ -239,6 +239,10 @@ articleImages.forEach(image => {
     myModal.show();
   });
 });
+
+// Apply background images for recommendation covers
+document.querySelectorAll('.post-recommendations .card-cover[data-cover]')
+  .forEach(el => { const url = el.getAttribute('data-cover'); if(url) el.style.backgroundImage = `url('${url}')`; });
 </script>
 
 <!-- Enhanced interactions disabled due to styling conflicts -->
