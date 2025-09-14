@@ -18,28 +18,28 @@ layout: default
   </div>
 
   <div class="bg-green text-white pt-4 pb-4 mb-4 has-accent" style="--accent: {{ page.displaytheme | default: '#2d3142' }};">
-    <div id="context" class="container pt-4 pb-4">
+    <div id="context" class="container pt-4 pb-4 text-white">
         <div class="row">
-            <div class="col-lg-7">
+            <div class="col-lg-7 text-white">
                 <h3>Overview</h3>
-                <p class="lead">
+                <p class="lead text-white">
                   {{ page.lead }}
                 </p>
                 <hr>
-                <p>{{ page.brief }}</p>
+                <p class="text-white">{{ page.brief }}</p>
             </div>
 
-            <div class="col">
+            <div class="col text-white">
                 <h4><i class="bi bi-clock"></i> Published</h4>
-                <p>{{ page.date | date: "%B %e, %Y" }} {% if page.lastupdate %}(Updated: {{ page.lastupdate | date: "%B %e, %Y" }}, due to: {{page.updatereason}}){% endif %}</p>
+                <p class="text-white">{{ page.date | date: "%B %e, %Y" }} {% if page.lastupdate %}(Updated: {{ page.lastupdate | date: "%B %e, %Y" }}, due to: {{page.updatereason}}){% endif %}</p>
                 <h4><i class="bi bi-person"></i> Author</h4>
-                <p>{{ page.author }}</p>
+                <p class="text-white">{{ page.author }}</p>
         {% assign words = content | number_of_words %}
         {% assign mins = words | divided_by: 200 %}
         {% assign rem = words | modulo: 200 %}
         {% if rem > 0 %}{% assign mins = mins | plus: 1 %}{% endif %}
-        <h4><i class="bi bi-journal-text"></i> Reading Time</h4>
-        <p>~{{ mins }} min read ({{ words }} words)</p>
+        <h4 class="text-white"><i class="bi bi-journal-text"></i> Reading Time</h4>
+        <p class="text-white">~{{ mins }} min read ({{ words }} words)</p>
                 <h4><i class="bi bi-chat-square-text"></i> Keywords</h4>
                 <div class="d-flex flex-wrap gap-1">
                   {% for t in page.tags %}
