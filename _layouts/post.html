@@ -68,8 +68,15 @@ layout: default
   <div class="d-lg-none mb-2">
     <button id="toc-toggle" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list"></i> Contents</button>
   </div>
-  <div id="toc" class="toc-box d-none d-lg-block float-end ms-4 mb-3"></div>
-  {{ content }}
+  <div id="toc-mobile" class="toc-box d-none d-lg-none mb-3"></div>
+  <div class="row gx-4">
+    <div class="col-12 col-lg-8 post-body">
+      {{ content }}
+    </div>
+    <aside class="col-12 col-lg-4 d-none d-lg-block">
+      <div id="toc-desktop" class="toc-box"></div>
+    </aside>
+  </div>
 </div>
 
 <!-- Post pager: previous / next -->
@@ -278,8 +285,9 @@ document.querySelectorAll('.post-recommendations .card-cover[data-cover]')
 // Build a small ToC from h2/h3
 (function(){
   const entry = document.querySelector('.entry');
-  const toc = document.getElementById('toc');
-  if(!entry || !toc) return;
+  const tocMobile = document.getElementById('toc-mobile');
+  const tocDesktop = document.getElementById('toc-desktop');
+  if(!entry || (!tocMobile && !tocDesktop)) return;
   const headers = entry.querySelectorAll('h2, h3');
   if(!headers.length) return;
   const ul = document.createElement('ul');
@@ -292,10 +300,11 @@ document.querySelectorAll('.post-recommendations .card-cover[data-cover]')
     a.href = `#${h.id}`; a.textContent = h.textContent.trim();
     li.appendChild(a); ul.appendChild(li);
   });
-  toc.appendChild(ul); toc.classList.add('d-block');
+  if(tocDesktop){ tocDesktop.appendChild(ul.cloneNode(true)); }
+  if(tocMobile){ tocMobile.appendChild(ul); }
   const toggle = document.getElementById('toc-toggle');
-  if(toggle){
-    toggle.addEventListener('click', ()=> toc.classList.toggle('d-none'));
+  if(toggle && tocMobile){
+    toggle.addEventListener('click', ()=> tocMobile.classList.toggle('d-none'));
   }
 })();
 
