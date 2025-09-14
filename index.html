@@ -17,12 +17,47 @@ layout: default
 </div>
 
 <div class="container my-4">
+  <!-- Filters: search + tags -->
+  {% assign all_tags = site.tags | sort %}
+  {% assign tags_total = site.tags | size %}
+  <div class="filters-bar mb-3">
+    <div class="row g-2 align-items-center">
+      <div class="col-12 col-md-6">
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input id="post-search" type="search" class="form-control" placeholder="Search posts (title, subtitle, tags)" aria-label="Search posts" />
+          <button id="clear-filters" class="btn btn-outline-secondary" type="button" aria-label="Clear filters">Clear</button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-wrap gap-1 justify-content-md-end chips-wrap">
+          {% for tag in all_tags %}
+            {% assign tag_name = tag[0] %}
+            <button class="filter-chip" data-tag="{{ tag_name | escape }}" aria-pressed="false" {% if forloop.index > 10 %}data-more="true"{% endif %}>{{ tag_name }}</button>
+          {% endfor %}
+        </div>
+      </div>
+      {% if tags_total > 10 %}
+      <div class="col-12 d-flex justify-content-end">
+        <button class="filter-chip more-chip" data-more-toggle="true" aria-pressed="false" aria-expanded="false">More</button>
+      </div>
+      {% endif %}
+    </div>
+    <div class="row mt-2 selected-tags-row d-none">
+      <div class="col-12 d-flex align-items-center gap-2 flex-wrap">
+        <span class="text-muted small">Selected:</span>
+        <div id="selected-tags" class="d-flex gap-1 flex-wrap"></div>
+        <button id="reset-all" class="filter-chip reset-all" type="button"><i class="bi bi-x-circle me-1"></i>Reset all</button>
+      </div>
+    </div>
+  </div>
   <div class="row g-4 posts-grid">
     {% for post in paginator.posts %}
   <div class="col-12 col-md-6">
-      {% capture cover_style %}{% if post.maskimage %}background-image: url('{{ site.baseurl }}/images/titles/{{ post.maskimage }}');{% else %}background-image: linear-gradient(135deg, var(--accent), #222);{% endif %}{% endcapture %}
-      <a class="post-card d-block h-100 text-decoration-none" href="{{ site.baseurl }}{{ post.url }}" style="--accent: {{ post.displaytheme | default: '#2d3142' }};">
-        <div class="post-cover position-relative" role="img" aria-label="{{ post.title }}" style="{{ cover_style }}">
+  {% assign tags_str = post.tags | join: ' ' %}
+  {% assign search_blob = post.title | append: ' ' | append: post.subtitle | append: ' ' | append: tags_str %}
+  <a class="post-card d-block h-100 text-decoration-none" href="{{ site.baseurl }}{{ post.url }}" style="--accent: {{ post.displaytheme | default: '#2d3142' }};" data-tags="{{ tags_str | downcase }}" data-search="{{ search_blob | downcase }}">
+        <div class="post-cover position-relative" role="img" aria-label="{{ post.title }}" {% if post.maskimage %}data-cover="{{ site.baseurl }}/images/titles/{{ post.maskimage }}"{% endif %}>
           {% assign days_since = 0 %}
           {% if post.date %}
             {% assign now_ts = "now" | date: "%s" %}
@@ -61,6 +96,9 @@ layout: default
       </a>
     </div>
     {% endfor %}
+  </div>
+  <div id="no-results" class="no-results d-none text-center text-muted my-4">
+    <i class="bi bi-info-circle me-1"></i>No posts match your filters.
   </div>
 </div>
 
@@ -124,5 +162,141 @@ layout: default
   
 </div>
 {% endif %}
+
+<script>
+(function(){
+  const grid = document.querySelector('.posts-grid');
+  if(!grid) return;
+  // Apply cover images from data attribute
+  grid.querySelectorAll('.post-cover[data-cover]')
+      .forEach(el => { const url = el.getAttribute('data-cover'); if(url) el.style.backgroundImage = `url('${url}')`; });
+  const cards = Array.from(grid.querySelectorAll('.post-card'));
+  const searchInput = document.getElementById('post-search');
+  const filtersBar = document.querySelector('.filters-bar');
+  const chips = Array.from(document.querySelectorAll('.filter-chip[data-tag]'));
+  const moreChip = document.querySelector('.filter-chip.more-chip');
+  const clearBtn = document.getElementById('clear-filters');
+  const noResults = document.getElementById('no-results');
+  const selectedTagsWrap = document.getElementById('selected-tags');
+  const selectedTagsRow = document.querySelector('.selected-tags-row');
+  const resetAllBtn = document.getElementById('reset-all');
+  let activeTags = new Set();
+
+  function setShowAllTags(show){
+    if(!filtersBar) return;
+    if(show){ filtersBar.classList.add('show-all-tags'); moreChip?.setAttribute('aria-pressed','true'); moreChip?.setAttribute('aria-expanded','true'); moreChip && (moreChip.textContent = 'Less'); }
+    else { filtersBar.classList.remove('show-all-tags'); moreChip?.setAttribute('aria-pressed','false'); moreChip?.setAttribute('aria-expanded','false'); moreChip && (moreChip.textContent = 'More'); }
+  }
+
+  function updateURL(){
+    const params = new URLSearchParams(window.location.search);
+    const q = (searchInput?.value || '').trim();
+    if(q) params.set('q', q); else params.delete('q');
+    if(activeTags.size){ params.set('tags', Array.from(activeTags).join(',')); } else { params.delete('tags'); }
+    const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${window.location.hash}`;
+    history.replaceState(null, '', newUrl);
+  }
+
+  function applyFilters(){
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    cards.forEach(card => {
+      const text = card.getAttribute('data-search') || '';
+      const tags = (card.getAttribute('data-tags') || '').split(/\s+/).filter(Boolean);
+      const matchesText = !q || text.includes(q);
+      const matchesTags = activeTags.size === 0 || Array.from(activeTags).every(t => tags.includes(t));
+      card.closest('.col-12').style.display = (matchesText && matchesTags) ? '' : 'none';
+    });
+    const visible = grid.querySelectorAll('.col-12:not([style*="display: none"])').length;
+    if(noResults){ noResults.classList.toggle('d-none', visible !== 0); }
+    updateURL();
+    renderSelectedTags();
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const t = chip.getAttribute('data-tag').toLowerCase();
+      const pressed = chip.getAttribute('aria-pressed') === 'true';
+      if(pressed){ activeTags.delete(t); chip.setAttribute('aria-pressed','false'); }
+      else { activeTags.add(t); chip.setAttribute('aria-pressed','true'); }
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  moreChip?.addEventListener('click', () => {
+    const isExpanded = moreChip.getAttribute('aria-expanded') === 'true';
+    setShowAllTags(!isExpanded);
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    searchInput && (searchInput.value = '');
+    activeTags.clear();
+    chips.forEach(c => c.setAttribute('aria-pressed','false'));
+    applyFilters();
+  });
+
+  function renderSelectedTags(){
+    if(!selectedTagsWrap || !selectedTagsRow) return;
+    selectedTagsWrap.innerHTML = '';
+    if(activeTags.size === 0){ selectedTagsRow.classList.add('d-none'); return; }
+    selectedTagsRow.classList.remove('d-none');
+    Array.from(activeTags).forEach(t => {
+      const b = document.createElement('button');
+      b.className = 'filter-chip selected-chip';
+      b.type = 'button';
+      b.setAttribute('data-tag', t);
+      b.innerHTML = `<i class="bi bi-check2-circle me-1"></i>${t}`;
+      b.addEventListener('click', () => {
+        activeTags.delete(t);
+        const chip = chips.find(c => c.getAttribute('data-tag').toLowerCase() === t);
+        chip?.setAttribute('aria-pressed','false');
+        applyFilters();
+      });
+      selectedTagsWrap.appendChild(b);
+    });
+  }
+
+  resetAllBtn?.addEventListener('click', () => {
+    searchInput && (searchInput.value = '');
+    activeTags.clear();
+    chips.forEach(c => c.setAttribute('aria-pressed','false'));
+    applyFilters();
+  });
+
+  function parseInitialFilters(){
+    const params = new URLSearchParams(window.location.search);
+    let q = params.get('q') || '';
+    let tagsParam = params.get('tags') || params.get('tag') || '';
+    if(!tagsParam && window.location.hash){
+      const hash = window.location.hash.replace(/^#/, '');
+      const hashParams = new URLSearchParams(hash);
+      tagsParam = hashParams.get('tags') || hashParams.get('tag') || '';
+      q = q || hashParams.get('q') || '';
+    }
+    const initialTags = new Set(tagsParam.split(',').map(s => s.trim().toLowerCase()).filter(Boolean));
+    if(searchInput) searchInput.value = q;
+    if(initialTags.size){
+      chips.forEach(chip => {
+        const t = chip.getAttribute('data-tag').toLowerCase();
+        if(initialTags.has(t)){
+          chip.setAttribute('aria-pressed','true');
+          activeTags.add(t);
+        }
+      });
+      // If any selected tag is in the hidden set, expand the list
+      const needsExpand = Array.from(initialTags).some(t => {
+        const el = chips.find(c => c.getAttribute('data-tag').toLowerCase() === t);
+        return el && el.hasAttribute('data-more');
+      });
+      if(needsExpand) setShowAllTags(true);
+    }
+    applyFilters();
+  }
+
+  // Initialize
+  parseInitialFilters();
+})();
+</script>
 
 <!-- from: https://jekyllrb.com/docs/pagination/ and https://getbootstrap.com/docs/5.3/components/pagination/-->

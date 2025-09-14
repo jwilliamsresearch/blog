@@ -167,7 +167,7 @@ a:hover {
 .posts-grid { align-items: stretch; }
 .post-card { border-radius: 14px; overflow: hidden; border: none; background: #fff; box-shadow: 0 6px 22px rgba(0,0,0,.06); transition: transform .12s ease, box-shadow .2s ease; display: flex; flex-direction: column; height: 100%; }
 .post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.09); }
-.post-cover { aspect-ratio: 16 / 9; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.post-cover { aspect-ratio: 16 / 9; background-size: cover; background-position: center; background-repeat: no-repeat; background-image: linear-gradient(135deg, var(--accent), #222); }
 .post-body { display: flex; flex-direction: column; flex: 1; }
 .post-title { color: #2c3e50; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6rem; line-clamp: 2; }
 .post-subtitle { color: #6b7280; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.8rem; line-clamp: 2; }
@@ -175,6 +175,19 @@ a:hover {
 .tag-chip { display: inline-block; padding: .15rem .5rem; border-radius: 999px; font-size: .75rem; background: rgba(45,49,66,.08); color: #2d3142; }
 .post-tags { height: 1.6rem; overflow: hidden; white-space: nowrap; }
 .post-cta { margin-top: auto; }
+
+/* Filter bar */
+.filters-bar .chips-wrap { max-height: 80px; overflow: hidden; }
+.filters-bar.show-all-tags .chips-wrap { max-height: none; overflow: visible; }
+.filters-bar .filter-chip { border: 1px solid rgba(0,0,0,.1); background: #fff; color: #2c3e50; border-radius: 999px; padding: .35rem .7rem; font-size: .85rem; cursor: pointer; transition: background .2s ease, color .2s ease, box-shadow .2s ease; }
+.filters-bar .filter-chip:hover { background: #f3f4f6; }
+.filters-bar .filter-chip[aria-pressed="true"] { background: #2d3142; color: #fff; box-shadow: 0 2px 8px rgba(45,49,66,.25); border-color: transparent; }
+.filters-bar .filter-chip.more-chip { border-style: dashed; }
+.filters-bar .reset-all { background: #fef2f2; color: #b91c1c; border-color: rgba(185,28,28,.3); }
+.filters-bar .reset-all:hover { background: #fee2e2; }
+.selected-tags-row .selected-chip { background: #e0f2fe; color: #075985; border-color: rgba(7,89,133,.25); }
+.selected-tags-row .selected-chip:hover { background: #bae6fd; }
+.no-results { font-size: .95rem; }
 
 @media (max-width: 576px) {
     /* aspect-ratio maintains height automatically */
