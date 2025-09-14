@@ -10,8 +10,6 @@ displaytheme: '#1f3c88'
 maskimage: os3-studio.png
 icon: bi-shield-lock
 ---
-## Why OS³, Why Now?
-
 OS³ (Open Source Security Studio) is a deliberately vulnerable, modular, and instructor‑friendly platform for teaching cyber security through direct, repeatable practice. It is purpose‑built for higher education, internal upskilling, and STEM outreach. For CMU540 (Computer Science) at Birmingham Newman University, OS³ provides a practical environment to link conceptual material to lived experience: learners don’t just read about vulnerabilities—they exploit them safely, then fix them in place.
 
 You’ll find paired “insecure vs. secure” implementations of core topics (e.g., SQL injection, XSS, CSRF, SSRF, access control, crypto practices, logging/monitoring) and network security labs (protocol security, port scanning, DNS security, traffic analysis, firewall simulation). Each module is tightly scoped and runs locally, making it ideal for a 3 hour minute seminar, a flipped‑classroom activity, or a guided workshop with community groups.

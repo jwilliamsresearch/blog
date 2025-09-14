@@ -76,6 +76,34 @@ article[style*="background-color:"] {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Read progress bar */
+.read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, #16a34a, #2563eb); transform-origin: 0 0; transform: scaleX(0); z-index: 2000; }
+
+/* Post header meta chips */
+.post-meta-chips { display: flex; gap: .5rem; flex-wrap: wrap; }
+.post-meta-chips .meta-chip { display: inline-flex; align-items: center; gap: .25rem; padding: .25rem .5rem; border-radius: 999px; background: rgba(0,0,0,.06); color: #1f2937; font-size: .85rem; }
+.post-meta-chips .meta-chip.updated { background: rgba(37, 99, 235, .12); color: #1e3a8a; }
+
+/* ToC box */
+.toc-box { width: 260px; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.08); padding: 1rem; position: sticky; top: 6rem; max-height: calc(100vh - 8rem); overflow: auto; }
+.toc-box .toc-item { margin: .25rem 0; }
+.toc-box .toc-h2 a { font-weight: 600; color: #2c3e50; }
+.toc-box .toc-h3 a { padding-left: .5rem; color: #4b5563; font-size: .95rem; }
+.toc-box a { text-decoration: none; }
+
+/* Prevent overlap and improve spacing */
+.entry { position: relative; }
+.entry::after { content: ""; display: block; clear: both; }
+
+/* Header text sizing */
+.header-base h1 { font-size: clamp(1.75rem, 3.5vw, 3rem); }
+.header-base .subtitle { font-size: clamp(1rem, 1.6vw, 1.25rem); }
+
+/* Mobile TOC reveal */
+@media (max-width: 991.98px) {
+    .toc-box { position: relative; width: 100%; top: auto; max-height: none; margin-bottom: 1rem; float: none; }
+}
+
 /* Prevent enhanced-interactions from overriding important styles */
 .geometric-bg {
     z-index: -1 !important;
@@ -155,8 +183,9 @@ div[style*="background-color:"] a {
 }
 
 /* Accent helper for post header block */
-.has-accent { background: var(--accent) !important; }
-.has-accent a { color: #fff !important; }
+.has-accent { background: var(--accent) !important; color: #fff !important; }
+.has-accent h1, .has-accent h2, .has-accent h3, .has-accent h4, .has-accent h5, .has-accent h6,
+.has-accent p, .has-accent li, .has-accent small, .has-accent span, .has-accent a, .has-accent strong, .has-accent em { color: #fff !important; }
 .has-accent .tag-chip { background: rgba(255,255,255,.2) !important; color: #fff !important; border-color: rgba(255,255,255,.35) !important; }
 
 /* Force all links to not be underlined */

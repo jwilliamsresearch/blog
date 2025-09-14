@@ -3,16 +3,29 @@ layout: default
 ---
 
 <article class="post">
+  <div class="read-progress"></div>
   <h1></h1>
   <div class="header-base header-small">
     <div class="central-holder">
       <div class="container central-container">
         <h1 class="ps-4 clip animate__animated animate__backInRight"
           style="background-image: url('{{ site.baseurl }}/images/titles/{{ page.maskimage }}')">{{ page.title }}</h1>
-            <p class="ps-4 mb-0 subtitle animate__animated animate__fadeInRight">{{ page.subtitle }}</p>
-            <p class="ps-4 date animate__animated animate__fadeInRight">
-              Published on {{ page.date | date: "%B %e, %Y" }}
-            </p>
+            <p class="ps-4 mb-2 subtitle animate__animated animate__fadeInRight">{{ page.subtitle }}</p>
+            {% assign words = content | number_of_words %}
+            {% assign mins = words | divided_by: 200 %}
+            {% assign rem = words | modulo: 200 %}
+            {% if rem > 0 %}{% assign mins = mins | plus: 1 %}{% endif %}
+            <div class="ps-4 pb-1 post-meta-chips animate__animated animate__fadeInRight">
+              <span class="meta-chip"><i class="bi bi-calendar3 me-1"></i>{{ page.date | date: "%b %e, %Y" }}</span>
+              <span class="meta-chip"><i class="bi bi-journal-text me-1"></i>~{{ mins }} min</span>
+              <span class="meta-chip"><i class="bi bi-person me-1"></i>{{ page.author }}</span>
+              {% if page.lastupdate %}<span class="meta-chip updated"><i class="bi bi-arrow-repeat me-1"></i>Updated {{ page.lastupdate | date: "%b %e, %Y" }}</span>{% endif %}
+            </div>
+            <div class="ps-4 pb-2 d-flex align-items-center gap-2">
+              <button id="share-copy" class="btn btn-sm btn-outline-secondary"><i class="bi bi-link-45deg"></i> Copy</button>
+              <a class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title | uri_escape }}"><i class="bi bi-twitter-x"></i> Share</a>
+              <a class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}"><i class="bi bi-linkedin"></i> Share</a>
+            </div>
         </div>
     </div>
   </div>
@@ -52,6 +65,10 @@ layout: default
 </div>
 
 <div class="entry container p-4">
+  <div class="d-lg-none mb-2">
+    <button id="toc-toggle" class="btn btn-sm btn-outline-secondary"><i class="bi bi-list"></i> Contents</button>
+  </div>
+  <div id="toc" class="toc-box d-none d-lg-block float-end ms-4 mb-3"></div>
   {{ content }}
 </div>
 
@@ -243,6 +260,54 @@ articleImages.forEach(image => {
 // Apply background images for recommendation covers
 document.querySelectorAll('.post-recommendations .card-cover[data-cover]')
   .forEach(el => { const url = el.getAttribute('data-cover'); if(url) el.style.backgroundImage = `url('${url}')`; });
+
+// Reading progress bar
+(function(){
+  const bar = document.querySelector('.read-progress');
+  if(!bar) return;
+  function onScroll(){
+    const el = document.querySelector('article.post');
+    const total = el.scrollHeight - window.innerHeight;
+    const scrolled = Math.max(0, Math.min(1, window.scrollY / (total || 1)));
+    bar.style.transform = `scaleX(${scrolled})`;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+// Build a small ToC from h2/h3
+(function(){
+  const entry = document.querySelector('.entry');
+  const toc = document.getElementById('toc');
+  if(!entry || !toc) return;
+  const headers = entry.querySelectorAll('h2, h3');
+  if(!headers.length) return;
+  const ul = document.createElement('ul');
+  ul.className = 'list-unstyled mb-0';
+  headers.forEach(h => {
+    if(!h.id){ h.id = h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-'); }
+    const li = document.createElement('li');
+    li.className = h.tagName === 'H2' ? 'toc-item toc-h2' : 'toc-item toc-h3';
+    const a = document.createElement('a');
+    a.href = `#${h.id}`; a.textContent = h.textContent.trim();
+    li.appendChild(a); ul.appendChild(li);
+  });
+  toc.appendChild(ul); toc.classList.add('d-block');
+  const toggle = document.getElementById('toc-toggle');
+  if(toggle){
+    toggle.addEventListener('click', ()=> toc.classList.toggle('d-none'));
+  }
+})();
+
+// Share buttons (copy link)
+(function(){
+  const copyBtn = document.getElementById('share-copy');
+  if(!copyBtn) return;
+  copyBtn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(window.location.href); copyBtn.innerHTML = '<i class="bi bi-check2"></i> Copied'; setTimeout(()=> copyBtn.innerHTML = '<i class="bi bi-link-45deg"></i> Copy', 1500); }
+    catch { /* ignore */ }
+  });
+})();
 </script>
 
 <!-- Enhanced interactions disabled due to styling conflicts -->
