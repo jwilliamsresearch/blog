@@ -85,7 +85,7 @@ article[style*="background-color:"] {
 .post-meta-chips .meta-chip.updated { background: rgba(37, 99, 235, .12); color: #1e3a8a; }
 
 /* ToC box */
-.toc-box { width: 260px; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.08); padding: 1rem; position: sticky; top: 6rem; max-height: calc(100vh - 8rem); overflow: auto; }
+.toc-box { width: 100%; background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.08); padding: 1rem; position: sticky; top: 6rem; max-height: calc(100vh - 8rem); overflow: auto; }
 .toc-box .toc-item { margin: .25rem 0; }
 .toc-box .toc-h2 a { font-weight: 600; color: #2c3e50; }
 .toc-box .toc-h3 a { padding-left: .5rem; color: #4b5563; font-size: .95rem; }
