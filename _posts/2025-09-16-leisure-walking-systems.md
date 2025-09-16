@@ -15,7 +15,9 @@ icon: bi-walking
 
 ## Introduction
 
-The Leisure Walking Systems Working Group (LWSWG) impact project represents a significant milestone in bridging academic research with practical industry applications in the domain of place-based walking systems. Over a three-month period funded by the Horizon CDT Impact Grant, this project has successfully delivered comprehensive resources that advance our understanding of how improved place representation can enhance leisure walking systems. This reflection examines the project's achievements, challenges encountered, lessons learned, and the broader implications for the field.
+The Leisure Walking Systems Working Group (LWSWG) impact project represents a significant milestone in bridging academic research with practical industry applications in the domain of place-based walking systems. Over a three-month period funded by the [Horizon CDT Impact Grant](https://www.horizon-cdt.ac.uk/), this project has successfully delivered comprehensive resources that advance our understanding of how improved place representation can enhance leisure walking systems. This reflection examines the project's achievements, challenges encountered, lessons learned, and the broader implications for the field.
+
+![LWSWG Logo]({{ site.baseurl }}/images/posts/2025-09-16/lwswg-logo.png)
 
 ![Leisure Walking Systems Working Group]({{ site.baseurl }}/images/titles/leisure-walking.png)
 
@@ -123,7 +125,7 @@ This integration architecture could serve as a template for other interdisciplin
 
 ### Project Management and Leadership
 
-Leading a project of this scope and complexity has provided valuable experience in project management, stakeholder engagement, and interdisciplinary collaboration. The project required coordinating multiple workstreams, managing diverse stakeholder expectations, and ensuring delivery within tight timelines.
+Leading a project of this scope and complexity has provided valuable experience in project management, stakeholder engagement, and interdisciplinary collaboration. The project required coordinating multiple workstreams, managing diverse stakeholder expectations, and ensuring delivery within tight timelines. This work was conducted as part of my doctoral research at the [University of Nottingham](https://www.nottingham.ac.uk/) through the [Horizon Centre for Doctoral Training](https://www.horizon-cdt.ac.uk/), which focuses on developing interdisciplinary approaches to digital technology challenges.
 
 This experience has developed skills in strategic planning, resource allocation, and team coordination that will be valuable for future projects. The project has also provided insights into the challenges and opportunities of academic-industry collaboration.
 
@@ -145,9 +147,9 @@ The Leisure Walking Systems Working Group impact project has successfully delive
 
 The challenges encountered, particularly around timeline constraints and balancing academic rigour with practical application, provide valuable lessons for future similar projects. The project's approach to academic-industry collaboration and knowledge dissemination creates a model that could be valuable for other domains.
 
-The broader implications of this work extend beyond the immediate outputs to include contributions to academic-industry collaboration models, knowledge management approaches, and community building strategies. These contributions position the project as a significant milestone in the development of more effective approaches to research impact and knowledge transfer.
+The broader implications of this work extend beyond the immediate outputs to include contributions to academic-industry collaboration models, knowledge management approaches, and community building strategies. These contributions position the project as a significant milestone in the development of more effective approaches to research impact and knowledge transfer. The project demonstrates how structured approaches to collaboration can overcome traditional barriers between academic and industry communities, creating mutually beneficial outcomes that advance both research and practice. The methodologies and frameworks developed through this project provide templates that can be adapted for other domains requiring similar interdisciplinary integration and practical application.
 
-The personal and professional development aspects of the project have been substantial, providing valuable experience in project management, technical communication, and community engagement. These skills and experiences will be valuable for future projects and career development.
+The personal and professional development aspects of the project have been substantial, providing valuable experience in project management, technical communication, and community engagement. These skills and experiences will be valuable for future projects and career development. The project has enhanced my abilities in leadership, stakeholder management, and interdisciplinary collaboration that are essential for complex research and development projects. The experience has also provided valuable insights into the challenges and opportunities of academic-industry collaboration, including the importance of clear communication, realistic planning, and sustainable community development.
 
 Looking forward, the project has created a strong foundation for continued development and collaboration in the leisure walking systems domain. The digital platform, comprehensive documentation, and community framework provide resources that can continue to evolve and support the field's development.
 
