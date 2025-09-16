@@ -16,8 +16,19 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+}
+
 h3 {
-    font-size: 3rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     position: relative;
     display: inline-block;
 }
@@ -31,6 +42,21 @@ h3::after {
     height: 4px;
     background: linear-gradient(90deg, #7068d7, #68cfd7);
     border-radius: 2px;
+}
+
+h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.875rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 0.625rem;
 }
 
 p, .main-text {

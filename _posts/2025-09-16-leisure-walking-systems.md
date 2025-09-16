@@ -45,11 +45,15 @@ This industry focus is particularly evident in the benefits and market different
 
 The development of a comprehensive website and digital platform represents a strategic investment in long-term knowledge sharing. The website serves not only as a repository for current findings but also as a foundation for ongoing collaboration and community building. This digital presence ensures that the project's outputs remain accessible and can continue to evolve beyond the initial impact grant period.
 
+![LWSWG Website Homepage]({{ site.baseurl }}/images/posts/2025-09-16/site-homepage.png)
+
 The website's structure, with its mega-menu navigation and organised content hierarchy, demonstrates careful consideration of user experience and accessibility. This attention to usability ensures that the resources can be effectively utilised by diverse audiences with varying levels of technical expertise.
 
 ### Demonstrator Framework
 
 The creation of an integrated documentation framework as a demonstrator system represents an innovative approach to showcasing practical implementation. Rather than developing a single software prototype, the project demonstrates how multiple approaches can work together effectively through comprehensive documentation and cross-referenced resources.
+
+![LWSWG Documentation Page Example]({{ site.baseurl }}/images/posts/2025-09-16/docs-page-example.png)
 
 This approach has several advantages: it remains accessible to a broad audience, it can be easily updated and maintained, and it provides multiple entry points for different types of users. The demonstrator effectively shows how recommendation systems, place representation frameworks, and user experience design principles can be integrated in practice.
 
@@ -89,6 +93,8 @@ This approach could be particularly valuable for other interdisciplinary fields 
 
 The establishment of a digital platform and community around leisure walking systems represents a foundation for ongoing development and collaboration. This community-building aspect extends the impact of the project beyond its initial timeline and creates opportunities for continued knowledge sharing and development.
 
+![LWSWG Resources Homepage]({{ site.baseurl }}/images/posts/2025-09-16/resources-home.png)
+
 The sustainability of this community will depend on continued engagement and the ability to evolve with changing needs and technologies. The project has created a strong foundation, but ongoing investment and community management will be necessary to maintain momentum.
 
 ## Technical and Methodological Contributions
@@ -96,6 +102,8 @@ The sustainability of this community will depend on continued engagement and the
 ### Documentation Methodology
 
 The project has developed a comprehensive methodology for creating technical documentation that serves multiple audiences. This methodology includes structured approaches to content organisation, cross-referencing, and accessibility considerations that could be valuable for other similar projects.
+
+![LWSWG Planning Checklist]({{ site.baseurl }}/images/posts/2025-09-16/planning-checklist.png)
 
 The documentation methodology emphasises clarity, accessibility, and practical applicability whilst maintaining academic rigour. This balance represents a significant contribution to how technical knowledge can be effectively communicated and disseminated.
 
